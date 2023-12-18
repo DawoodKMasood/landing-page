@@ -13,10 +13,10 @@ const Navbar = async ({ language }) => {
         <div className='relative flex items-center gap-4'>
           <div className='flex flex-1'>
             <Link href="/">
-              <span className='text-lg font-medium text-primary-900 hover:text-primary-800'>{t('navbar.logo-text')}</span>
+              <span className='text-lg font-medium hover:text-primary-800'>{t('navbar.logo-text')}</span>
             </Link>
           </div>
-          <div className='flex'>
+          <div className='hidden sm:flex'>
             <ul className='flex divide-x-2 divide-primary-100 px-3 text-sm font-medium'>
               {navbarMenu.map((menu) => (
                 <li key={menu.id}>
@@ -30,12 +30,12 @@ const Navbar = async ({ language }) => {
               ))}
             </ul>
           </div>
-          <div className='flex flex-1 justify-end'>
+          <div className='hidden md:flex flex-1 justify-end'>
             <ul className='flex'>
               {navbarActions.map((action) => (
                 <li key={action.id}>
                   <Link href={action.link}>
-                    <div className='bg-primary-700 text-white p-2 rounded-lg'>
+                    <div className='bg-primary-700 hover:bg-primary-800 text-white p-2 rounded-lg'>
                       Request Quote
                     </div>
                   </Link>
