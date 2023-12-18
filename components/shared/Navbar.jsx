@@ -1,20 +1,20 @@
-'use client'
+'use client';
 
 import Link from 'next/link';
+import PropTypes from 'prop-types';
 import { useTranslation } from '../../i18n/client';
-
 import Container from './Container';
 import { navbarMenu, navbarActions } from '@/constants';
-import { Bars3Icon } from '@heroicons/react/24/solid'
+import { Bars3Icon } from '@heroicons/react/24/solid';
 import { useState } from 'react';
 
 const Navbar = ({ language }) => {
   const { t } = useTranslation(language);
   const [mobileMenu, setMobileMenu] = useState(false);
 
-  const toggleMobileMenu = (_event) => {
-    setMobileMenu(!mobileMenu);
-  }
+  const toggleMobileMenu = () => {
+    setMobileMenu(prevMenu => !prevMenu);
+  };
 
   return (
     <Container className='py-6 border-b border-primary-100'>
@@ -22,10 +22,17 @@ const Navbar = ({ language }) => {
         <div className='relative flex items-center gap-4'>
           <div className='flex flex-1'>
             <Link href="/">
-              <span className='text-lg font-medium'>{t('navbar.logo-text')}</span>
+              <span aria-label={t('navbar.logo-text')} className='text-lg font-medium'>
+                {t('navbar.logo-text')}
+              </span>
             </Link>
           </div>
-          <button onClick={toggleMobileMenu} className='flex border border-gray-200 rounded-md cursor-pointer hover:bg-gray-50 p-1 sm:hidden'>
+          <button 
+            onClick={toggleMobileMenu}
+            className='flex border border-gray-200 rounded-md cursor-pointer hover:bg-gray-50 p-1 sm:hidden'
+            aria-expanded={mobileMenu}
+            aria-label="Toggle mobile menu"
+          >
             <Bars3Icon className="h-6 w-6 text-black" />
           </button>
           <div className='hidden sm:flex'>
@@ -75,6 +82,10 @@ const Navbar = ({ language }) => {
       </div>
     </Container>
   );
+};
+
+Navbar.propTypes = {
+  language: PropTypes.string.isRequired,
 };
 
 export default Navbar;
