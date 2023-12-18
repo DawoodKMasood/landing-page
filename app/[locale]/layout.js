@@ -1,9 +1,12 @@
 import { dir } from 'i18next';
 import { languages } from '../../i18n/settings';
-import { Inter } from 'next/font/google';
+import { Roboto } from 'next/font/google';
 import './globals.css';
 
-const inter = Inter({ subsets: ['latin'] });
+const robotoFont = Roboto({
+  subsets: ['latin'],
+  weight: ['100', '300', '400', '500', '700', '900'],
+});
 
 export const metadata = {
   title: 'Create Next App',
@@ -17,7 +20,7 @@ export async function generateStaticParams() {
 export default function RootLayout({ children, params: { locale } }) {
   return (
     <html lang={locale} dir={dir(locale)}>
-      <body className={inter.className}>{children}</body>
+      <body className={robotoFont.className}>{children}</body>
     </html>
   );
 }

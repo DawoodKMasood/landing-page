@@ -1,3 +1,3 @@
-import { navbarMenu } from './navbar';
+import { navbarMenu, navbarActions } from './navbar';
 
-export { navbarMenu };
+export { navbarMenu, navbarActions };

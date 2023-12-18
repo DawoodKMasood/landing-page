@@ -2,6 +2,8 @@
   "navbar": {
     "logo-text": "ExoBinary",
     "about-us": "About Us",
-    "contact-us": "Contact"
+    "contact-us": "Contact",
+    "services": "Services",
+    "careers" : "Careers"
   }
 }
