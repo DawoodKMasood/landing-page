@@ -1,5 +1,7 @@
 {
-    "navbar" : {
-        "logo-text": "ExoBinary"
-    }
+  "navbar": {
+    "logo-text": "ExoBinary",
+    "about-us": "About Us",
+    "contact-us": "Contact"
+  }
 }

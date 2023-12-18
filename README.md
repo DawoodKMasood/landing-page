@@ -27,38 +27,48 @@ This structure is optimized for large-scale applications, ensuring easy maintain
 ### Directory Structure
 
 - `/pages`
+
   - Contains page components.
   - Next.js uses the file system as the routing mechanism, so each file under `/pages` becomes a route.
 
 - `/components`
+
   - Reusable components specific to this application.
   - Subdivide into UI and layout components.
 
 - `/public`
+
   - Static files like images, fonts, etc.
 
 - `/styles`
+
   - Global styles, variables, and common mixins.
   - Consider using a preprocessor like Sass for more control.
 
 - `/lib`
+
   - Shared utility functions and helper code.
 
 - `/services`
+
   - Code for external API calls and data fetching.
   - Consider abstracting API calls for cleanliness and to handle API changes gracefully.
 
 - `/hooks`
+
   - Custom React hooks for shared logic across components.
 
 - `/context`
+
   - Global state management using Context API.
   - Use Redux or MobX for more complex state management.
 
 - `/models`
+
   - Type definitions (if using TypeScript) and data models.
 
 - `/config`
+
   - Application configuration and environment variables.
 
 - `/tests`
