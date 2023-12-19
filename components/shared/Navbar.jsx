@@ -13,27 +13,30 @@ const Navbar = ({ language }) => {
   const [mobileMenu, setMobileMenu] = useState(false);
 
   const toggleMobileMenu = () => {
-    setMobileMenu(prevMenu => !prevMenu);
+    setMobileMenu((prevMenu) => !prevMenu);
   };
 
   return (
-    <Container className='py-6 border-b border-primary-100'>
+    <Container className='border-b border-primary-100 py-6'>
       <div className='mx-auto'>
         <div className='relative flex items-center gap-4'>
           <div className='flex flex-1'>
-            <Link href="/">
-              <span aria-label={t('navbar.logo-text')} className='text-lg font-medium'>
+            <Link href='/'>
+              <span
+                aria-label={t('navbar.logo-text')}
+                className='text-lg font-medium'
+              >
                 {t('navbar.logo-text')}
               </span>
             </Link>
           </div>
-          <button 
+          <button
             onClick={toggleMobileMenu}
-            className='flex border border-gray-200 rounded-md cursor-pointer hover:bg-gray-50 p-1 sm:hidden'
+            className='flex cursor-pointer rounded-md border border-gray-200 p-1 hover:bg-gray-50 sm:hidden'
             aria-expanded={mobileMenu}
-            aria-label="Toggle mobile menu"
+            aria-label='Toggle mobile menu'
           >
-            <Bars3Icon className="h-6 w-6 text-black" />
+            <Bars3Icon className='h-6 w-6 text-black' />
           </button>
           <div className='hidden sm:flex'>
             <ul className='flex divide-x-2 divide-primary-100 px-3 text-sm font-medium'>
@@ -49,14 +52,12 @@ const Navbar = ({ language }) => {
               ))}
             </ul>
           </div>
-          <div className='hidden md:flex flex-1 justify-end'>
+          <div className='hidden flex-1 justify-end md:flex'>
             <ul className='flex'>
               {navbarActions.map((action) => (
                 <li key={action.id}>
                   <Link href={action.link}>
-                    <div className='bg-primary-700 hover:bg-primary-800 text-white p-2 rounded-lg'>
-                      Request Quote
-                    </div>
+                    <div className='btn-primary'>Request Quote</div>
                   </Link>
                 </li>
               ))}
@@ -64,12 +65,12 @@ const Navbar = ({ language }) => {
           </div>
         </div>
         {mobileMenu && (
-          <div className='flex sm:hidden py-2 my-4 px-2 border border-primary-100 rounded'>
-            <ul className='flex flex-col divide-y-2 w-full divide-primary-50 px-3 text-sm font-medium'>
+          <div className='my-4 flex rounded border border-primary-100 px-2 py-2 sm:hidden'>
+            <ul className='flex w-full flex-col divide-y-2 divide-primary-50 px-3 text-sm font-medium'>
               {navbarMenu.map((menu) => (
                 <li key={menu.id}>
                   <Link
-                    className='flex justify-center relative px-3 py-2 text-base font-medium hover:text-primary-800 w-full'
+                    className='relative flex w-full justify-center px-3 py-2 text-base font-medium hover:text-primary-800'
                     href={menu.link}
                   >
                     {t(menu.langKey)}

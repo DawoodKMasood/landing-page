@@ -1,11 +1,15 @@
 const Container = ({ className, children }) => {
-  const defaultClasses = 'relative px-4 sm:px-8 lg:px-12 py-4';
+  const defaultClasses = 'relative px-4 sm:px-8 lg:px-12 py-4 mx-auto';
 
   const classes = className
     ? defaultClasses.concat(' ', className)
     : defaultClasses;
 
-  return <div className={classes}>{children}</div>;
+  return (
+    <div className={classes} style={{ maxWidth: '2500px' }}>
+      {children}
+    </div>
+  );
 };
 
 export default Container;
