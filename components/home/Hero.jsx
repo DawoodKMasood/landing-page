@@ -6,10 +6,9 @@ import { heroSlides } from '@/constants/home';
 import { useState, useEffect, useRef } from 'react';
 import { Player } from '@lottiefiles/react-lottie-player';
 import gsap from 'gsap';
-import { useGSAP } from '@gsap/react';
 import { TextPlugin } from 'gsap/all';
-
 import { ArrowLeftIcon, ArrowRightIcon } from '@heroicons/react/24/solid';
+
 gsap.registerPlugin(TextPlugin);
 
 const Hero = ({ language }) => {
@@ -33,21 +32,21 @@ const Hero = ({ language }) => {
     });
   };
   return (
-    <Container className='h-[calc(100vh-105px)] overflow-x-hidden bg-gradient-to-b from-primary-100 to-primary-200 py-6'>
+    <Container className='h-[calc(100vh-85px)] overflow-x-hidden bg-gradient-to-b from-primary-100 to-primary-200 py-6 md:h-[calc(100vh-105px)]'>
       <div className='relative mx-auto h-full'>
-        <div className='container relative mx-auto flex h-full items-center justify-center gap-4'>
-          <div className='w-full md:w-8/12'>
+        <div className='container relative mx-auto flex h-full flex-col items-center justify-center gap-4 md:flex-row'>
+          <div className='w-full text-center md:w-8/12 md:text-left'>
             <h1 className='text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl'>
               {heroSlides[currentSlide].heading}
               <span ref={slideTitle} id='title'></span>
             </h1>
-            <p className='mt-6 text-lg leading-8 text-gray-600'>
+            <p className='mt-6  text-lg leading-8 text-gray-600'>
               {heroSlides[currentSlide].description}
             </p>
-            <div className='btn-primary mt-6'>Request Quote</div>
+            <button className='btn-primary mt-6'>Request Quote</button>
           </div>
 
-          <div className='w-full md:w-4/12'>
+          <div className='hidden w-full md:block md:w-4/12'>
             <Player
               autoplay
               loop
@@ -64,13 +63,13 @@ const Hero = ({ language }) => {
         {/* Left right icons */}
         <button
           onClick={() => changeSlide('prev')}
-          className='absolute -left-24 top-2/4 flex  h-48 w-48 -translate-y-1/2  items-center justify-center rounded-full border border-primary-950 transition-all  delay-150 hover:h-60 hover:w-60'
+          className='absolute bottom-0 left-0 flex h-16 w-16  -translate-y-1/2 items-center justify-center rounded-full border  border-primary-950 transition-all delay-150  md:-left-24 md:top-2/4  md:h-48  md:w-48 md:hover:h-60 md:hover:w-60'
         >
           <ArrowLeftIcon className='h-6 w-6 text-black' />
         </button>
         <button
           onClick={() => changeSlide('next')}
-          className='absolute -right-24 top-2/4 flex  h-48 w-48 -translate-y-1/2  items-center justify-center rounded-full border border-primary-950 transition-all  delay-150 hover:h-60 hover:w-60'
+          className='absolute bottom-0 right-0 flex h-16 w-16  -translate-y-1/2 items-center justify-center rounded-full border  border-primary-950 transition-all delay-150 md:-right-24 md:top-2/4  md:h-48  md:w-48 md:hover:h-60 md:hover:w-60'
         >
           <ArrowRightIcon className='h-6 w-6 text-black' />
         </button>
