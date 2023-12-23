@@ -1,3 +1,3 @@
 import { navbarMenu, navbarActions } from './navbar';
-
-export { navbarMenu, navbarActions };
+import { heroSlides } from '@/constants/home';
+export { navbarMenu, navbarActions, heroSlides };
