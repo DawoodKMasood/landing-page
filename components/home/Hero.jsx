@@ -4,11 +4,10 @@ import PropTypes from 'prop-types';
 import { useTranslation } from '@/i18n/client';
 import { heroSlides } from '@/constants/home';
 import { useState, useEffect, useRef } from 'react';
-import { Player } from '@lottiefiles/react-lottie-player';
 import gsap from 'gsap';
 import { TextPlugin } from 'gsap/all';
 import { ArrowLeftIcon, ArrowRightIcon } from '@heroicons/react/24/solid';
-
+import LottieAnimation from '@/components/shared/Lottie';
 gsap.registerPlugin(TextPlugin);
 
 const Hero = ({ language }) => {
@@ -47,7 +46,12 @@ const Hero = ({ language }) => {
           </div>
 
           <div className='hidden w-full md:block md:w-4/12'>
-            <Player
+            <LottieAnimation
+              src={heroSlides[currentSlide].src}
+              width='350px'
+              height='350px'
+            />
+            {/* <Player
               autoplay
               loop
               src={heroSlides[currentSlide].src}
@@ -55,9 +59,9 @@ const Hero = ({ language }) => {
                 height: '350px',
                 width: '350px',
                 borderRadius: '2rem',
-                boxShadow: 'box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;',
+                boxShadow: 'box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px',
               }}
-            ></Player>
+            ></Player> */}
           </div>
         </div>
         {/* Left right icons */}

@@ -1,11 +1,11 @@
 import Hero from '@/components/home/Hero';
-import Navbar from '@/components/shared/Navbar';
+import WhyUs from '@/components/home/WhyUs';
 
 const Home = ({ params: { locale } }) => {
   return (
     <main>
-      <Navbar language={locale} />
       <Hero language={locale} />
+      <WhyUs language={locale} />
     </main>
   );
 };
