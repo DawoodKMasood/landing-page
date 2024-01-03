@@ -7,7 +7,10 @@ import { useState, useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { TextPlugin } from 'gsap/all';
 import { ArrowLeftIcon, ArrowRightIcon } from '@heroicons/react/24/solid';
-import LottieAnimation from '@/components/shared/Lottie';
+import Image from 'next/image';
+
+import HeroBackgroundImage from '@/public/assets/images/hero-background.jpg';
+
 gsap.registerPlugin(TextPlugin);
 
 const Hero = ({ language }) => {
@@ -31,37 +34,23 @@ const Hero = ({ language }) => {
     });
   };
   return (
-    <Container className='h-[calc(100vh-85px)] overflow-x-hidden bg-gradient-to-b from-primary-100 to-primary-200 py-6 md:h-[calc(100vh-105px)]'>
+    <Container className='h-[calc(100vh)] overflow-x-hidden bg-gradient-to-t from-primary-100 to-white py-6 md:h-[calc(100vh)]'>
+      <Image
+        src={HeroBackgroundImage.src}
+        layout='fill'
+        objectFit='cover'
+        className='absolute inset-0 opacity-5'
+      />
       <div className='relative mx-auto h-full'>
         <div className='container relative mx-auto flex h-full flex-col items-center justify-center gap-4 md:flex-row'>
-          <div className='w-full text-center md:w-8/12 md:text-left'>
-            <h1 className='text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl'>
-              {heroSlides[currentSlide].heading}
+          <div className='flex w-full flex-col items-center justify-center text-center md:w-8/12 md:text-left'>
+            <h1 className='text-2xl font-bold tracking-tight text-gray-900 sm:text-4xl'>
               <span ref={slideTitle} id='title'></span>
             </h1>
-            <p className='mt-6  text-lg leading-8 text-gray-600'>
+            <p className='mt-6 text-lg leading-8 text-gray-600'>
               {heroSlides[currentSlide].description}
             </p>
             <button className='btn-primary mt-6'>Request Quote</button>
-          </div>
-
-          <div className='hidden w-full md:block md:w-4/12'>
-            <LottieAnimation
-              src={heroSlides[currentSlide].src}
-              width='350px'
-              height='350px'
-            />
-            {/* <Player
-              autoplay
-              loop
-              src={heroSlides[currentSlide].src}
-              style={{
-                height: '350px',
-                width: '350px',
-                borderRadius: '2rem',
-                boxShadow: 'box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px',
-              }}
-            ></Player> */}
           </div>
         </div>
         {/* Left right icons */}

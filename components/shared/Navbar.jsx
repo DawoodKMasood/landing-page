@@ -1,12 +1,17 @@
 'use client';
 
+import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import PropTypes from 'prop-types';
+
+import { navbarMenu, navbarActions } from '@/constants';
+
+import { Bars3Icon } from '@heroicons/react/24/solid';
+import Logo from '@/public/assets/images/logo.svg';
+
 import { useTranslation } from '../../i18n/client';
 import Container from './Container';
-import { navbarMenu, navbarActions } from '@/constants';
-import { Bars3Icon } from '@heroicons/react/24/solid';
-import { useState } from 'react';
 
 const Navbar = ({ language }) => {
   const { t } = useTranslation(language);
@@ -17,17 +22,12 @@ const Navbar = ({ language }) => {
   };
 
   return (
-    <Container className='border-b border-primary-100 py-6'>
+    <Container className='!absolute left-0 top-0 z-50 w-full py-6'>
       <div className='mx-auto'>
         <div className='relative flex items-center gap-4'>
           <div className='flex flex-1'>
-            <Link href='/'>
-              <span
-                aria-label={t('navbar.logo-text')}
-                className='text-lg font-medium'
-              >
-                {t('navbar.logo-text')}
-              </span>
+            <Link href='/' className='max-w-[150px]'>
+              <Image src={Logo} alt={t('navbar.logo-text')} />
             </Link>
           </div>
           <button
