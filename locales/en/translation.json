@@ -4,6 +4,13 @@
     "about-us": "About Us",
     "contact-us": "Contact",
     "services": "Services",
-    "careers" : "Careers"
+    "careers": "Careers"
+  },
+  "home": {
+    "banner": {
+      "title": "From vision to pixels",
+      "description": "Unlock the hidden potential in your business. We don't just code, we unlock possibilities.",
+      "quoteBtn": "Let's talk"
+    }
   }
 }

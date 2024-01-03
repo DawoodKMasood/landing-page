@@ -13,15 +13,15 @@ const WhyUs = ({ language }) => {
     <Container className=' !py-28'>
       <div className='relative mx-auto flex h-full flex-col items-center justify-center'>
         <div className='text-center'>
-          <h2 className='flex items-end justify-center font-bold leading-none text-primary-700 md:text-5xl'>
+          <h2 className='flex items-end justify-center text-2xl font-bold leading-none text-primary-700 md:text-5xl'>
             Why Choose Us
-            <div className='bg-orange-500 h-2 w-2 rounded-full md:h-3 md:w-3'></div>
+            <div className='h-2 w-2 rounded-full bg-orange-500 md:h-3 md:w-3'></div>
           </h2>
         </div>
         <p className='mb-20 mt-5 text-center md:text-xl'>
           Innovative Solutions for Modern Challenges
         </p>
-        <div className='container flex items-center justify-center'>
+        <div className='container grid gap-y-16  md:grid-cols-3'>
           {whyUsContent.cards.map((card) => (
             <div key={card.key} className=' px-12 text-center'>
               <LottieAnimation
